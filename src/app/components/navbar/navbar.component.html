@@ -1,15 +1,24 @@
 <nav class="navbar navbar-inverse">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" routerLink=""> DoYourJob </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#collapsing-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink=""> Do your amazing Job </a>
     </div>
-    <ul class="nav navbar-nav">
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a routerLink="">Users</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="jobs">Jobs</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="collapsing-navbar">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="">Users</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="jobs">Jobs</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
