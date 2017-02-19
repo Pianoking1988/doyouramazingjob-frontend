@@ -9,14 +9,21 @@ import { Job } from './../../models/job';
 })
 export class JobListFormComponent implements OnInit {
 
-  private job: Job = new Job();
+  private newJob: boolean = true;
+  @Input() private job: Job;
   @Input() private jobList: Job[] = null;
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.job !== undefined) {
+      this.newJob = false;
+    } else {
+      this.job = new Job();
+    }
+  }
 
-  public addJob() {
+  public saveJob() {
     if (this.job.isValid()) {
       this.jobList.push(this.job);
       this.reset();
@@ -27,4 +34,9 @@ export class JobListFormComponent implements OnInit {
     this.job = new Job();
   }
 
+  public getIcon() {
+    return this.newJob
+        ? "https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-128.png"
+        : "http://megaicons.net/static/img/icons_sizes/8/178/512/editing-edit-icon.png";
+  }
 }

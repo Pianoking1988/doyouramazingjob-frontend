@@ -1,9 +1,6 @@
 <div class="row job-form-wrapper">
   <div class="col-sm-1">
-    <a (click)="addJob()">
-      <img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-128.png"
-           alt="Job add icon, has to be replaced in the future">
-    </a>
+    <img [src]="getIcon()">
   </div>
   <div class="col-sm-11">
     <div class="form-group">
@@ -14,5 +11,25 @@
       <textarea rows="3" class="form-control" id="description" name="description"
         [(ngModel)]="job.description" placeholder="Description" required></textarea>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-1 col-sm-offset-10">
+    <button *ngIf="!newJob"
+            type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+      Cancel
+    </button>
+    <button *ngIf="newJob"
+            type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+      Reset
+    </button>
+  </div>
+  <div class="col-sm-1">
+    <button type="button" class="btn btn-success" (click)="saveJob()">
+      <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
+      Save
+    </button>
   </div>
 </div>
