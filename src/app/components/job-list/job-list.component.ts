@@ -31,6 +31,10 @@ export class JobListComponent implements OnInit {
     this.jobList[index2] = tempJob;
   }
 
+  public removeJob(index: number) {
+    this.jobList.splice(index, 1);
+  }
+
   private createPseudoJobList() {
     let job1: Job = new Job();
     job1.text = 'First Job';
