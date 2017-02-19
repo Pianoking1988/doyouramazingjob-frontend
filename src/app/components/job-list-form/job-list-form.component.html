@@ -1,0 +1,15 @@
+<div class="media">
+  <a (click)="addJob">
+    <div class="media-left media-middle">
+      <img class="media-object" src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-128.png"
+            width="64" height="64"
+            alt="Job add icon, has to be replaced in the future">
+    </div>
+  </a>
+  <div class="media-body">
+    <div class="form-group">
+      <input type="text" class="form-control" id="name" name="name"
+        [(ngModel)]="mitarbeiter.name" placeholder="Text" required>
+    </div>
+  </div>
+</div>

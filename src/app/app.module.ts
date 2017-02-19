@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { JobListComponent } from './components/job-list/job-list.component';
+import { JobListFormComponent } from './components/job-list-form/job-list-form.component';
 
 const appRoutes: Routes = [
-  { path: '',        component: UserListComponent },
+  { path: '',     component: UserListComponent },
   { path: 'jobs', component: JobListComponent }
 ];
 
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     UserListComponent,
-    JobListComponent
+    JobListComponent,
+    JobListFormComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

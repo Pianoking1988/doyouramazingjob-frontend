@@ -1,3 +1,15 @@
-<p>
-  job-list works!
-</p>
+<h1>Those are your amazing jobs</h1>
+<div class="media" *ngFor="let job of jobList; let idx = index">
+  <a href="#">
+    <div class="media-left media-middle">
+      <img class="media-object" src="https://cdn2.iconfinder.com/data/icons/employment-business/256/Job_Search-512.png"
+           width="64" height="64"
+           alt="Job icon, has to be replaced in the future">
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{ job.text }}</h4>
+      <p>{{ job.description }}</p>
+    </div>
+  </a>
+</div>
+<app-job-list-form></app-job-list-form>
