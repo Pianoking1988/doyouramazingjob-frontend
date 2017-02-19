@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Job } from './../../models/job';
 
 @Component({
   selector: 'app-job-list-form',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobListFormComponent implements OnInit {
 
+  private job: Job = new Job();
+  @Input() private jobList: Job[] = null;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  public addJob() {
+    if (this.job.isValid()) {
+      this.jobList.push(this.job);
+      this.reset();
+    }
+  }
+
+  private reset() {
+    this.job = new Job();
   }
 
 }
