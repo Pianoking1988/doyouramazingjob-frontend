@@ -2,6 +2,10 @@ export class Job {
   text: string;
   description: string;
   subJobs: Job[];
+
+  created: Date = new Date();
+  updated: Date;
+
   editing: boolean;
 
   public isValid() {

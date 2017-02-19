@@ -53,10 +53,27 @@
     </div>
   </div>
 
+  <div class="row" *ngIf="!job.editing">
+    <div class="col-sm-1 col-sm-offset-1">
+      <span class="label label-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        {{job.created | date: 'dd.MM.yy HH:mm'}}
+      </span>
+    </div>
+    <div class="col-sm-1 col-sm-offset-1" *ngIf="job.updated !== undefined">
+      <span class="label label-info">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        {{job.updated | date: 'dd.MM.yy HH:mm'}}
+      </span>
+    </div>
+  </div>
+
   <app-job-list-form *ngIf="job.editing"
     [jobList]="jobList" [originJob]="job" [jobListComponent]="this">
   </app-job-list-form>
 
 </div>
 
-<app-job-list-form [jobList]="jobList"></app-job-list-form>
+<div class="job">
+  <app-job-list-form [jobList]="jobList"></app-job-list-form>
+</div>

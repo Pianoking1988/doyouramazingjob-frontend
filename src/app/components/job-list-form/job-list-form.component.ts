@@ -31,10 +31,12 @@ export class JobListFormComponent implements OnInit {
   public save() {
     if (this.job.isValid()) {
       if (this.newJob) {
+        this.job.created = new Date();
         this.jobList.push(this.job);
         this.reset();
       } else {
         this.assignOriginFromJob();
+        this.originJob.updated = new Date();
         this.jobListComponent.toggleEditing(this.originJob);
       }
     }
