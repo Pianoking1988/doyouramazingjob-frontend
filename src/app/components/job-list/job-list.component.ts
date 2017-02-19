@@ -35,6 +35,10 @@ export class JobListComponent implements OnInit {
     this.jobList.splice(index, 1);
   }
 
+  public toggleEditing(job: Job) {
+    job.editing = !job.editing;
+  }
+
   private createPseudoJobList() {
     let job1: Job = new Job();
     job1.text = 'First Job';

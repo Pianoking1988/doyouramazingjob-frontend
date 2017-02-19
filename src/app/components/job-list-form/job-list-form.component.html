@@ -15,19 +15,19 @@
 </div>
 <div class="row">
   <div class="col-sm-1 col-sm-offset-10">
-    <button *ngIf="!newJob"
+    <button *ngIf="!newJob" (click)="cancel()"
             type="button" class="btn btn-default">
       <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
       Cancel
     </button>
-    <button *ngIf="newJob"
+    <button *ngIf="newJob" (click)="reset()"
             type="button" class="btn btn-default">
       <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
       Reset
     </button>
   </div>
   <div class="col-sm-1">
-    <button type="button" class="btn btn-success" (click)="saveJob()">
+    <button type="button" class="btn btn-success" (click)="save()">
       <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
       Save
     </button>

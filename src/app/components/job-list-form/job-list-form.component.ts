@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { JobListComponent } from '../job-list/job-list.component';
+
 import { Job } from './../../models/job';
 
 @Component({
@@ -10,33 +12,55 @@ import { Job } from './../../models/job';
 export class JobListFormComponent implements OnInit {
 
   private newJob: boolean = true;
-  @Input() private job: Job;
+  private job: Job = null;
+  @Input() private originJob: Job;
   @Input() private jobList: Job[] = null;
+  @Input() private jobListComponent: JobListComponent;
 
   constructor() { }
 
   ngOnInit() {
-    if (this.job !== undefined) {
+    if (this.originJob !== undefined) {
       this.newJob = false;
+      this.assignJobFromOrigin();
     } else {
       this.job = new Job();
     }
   }
 
-  public saveJob() {
+  public save() {
     if (this.job.isValid()) {
-      this.jobList.push(this.job);
-      this.reset();
+      if (this.newJob) {
+        this.jobList.push(this.job);
+        this.reset();
+      } else {
+        this.assignOriginFromJob();
+        this.jobListComponent.toggleEditing(this.originJob);
+      }
     }
   }
 
-  private reset() {
-    this.job = new Job();
+  public reset() {
+      this.job = new Job();
+  }
+
+  public cancel() {
+    this.assignJobFromOrigin();
+    this.jobListComponent.toggleEditing(this.originJob);
+  }
+
+  public assignJobFromOrigin() {
+    this.job = Object.assign(new Job(), this.originJob);
+  }
+
+  public assignOriginFromJob() {
+    this.originJob.text = this.job.text;
+    this.originJob.description = this.job.description;
   }
 
   public getIcon() {
     return this.newJob
         ? "https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-128.png"
-        : "http://megaicons.net/static/img/icons_sizes/8/178/512/editing-edit-icon.png";
+        : "https://image.freepik.com/free-icon/edit-interface-symbol-of-a-pencil-on-a-square-outline-paper_318-61160.jpg";
   }
 }
