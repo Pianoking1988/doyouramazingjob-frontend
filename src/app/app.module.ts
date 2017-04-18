@@ -10,6 +10,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { JobListComponent } from './components/job-list/job-list.component';
 import { JobListFormComponent } from './components/job-list-form/job-list-form.component';
 
+import { Auth } from './services/auth.service';
+
 const appRoutes: Routes = [
   { path: '',     component: UserListComponent },
   { path: 'jobs', component: JobListComponent }
@@ -29,7 +31,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [Auth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

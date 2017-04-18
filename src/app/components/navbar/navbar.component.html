@@ -22,6 +22,8 @@
           <a routerLink="jobs">Jobs</a>
         </li>
       </ul>
+      <button type="button" class="btn btn-primary navbar-btn navbar-right" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+      <button type="button" class="btn btn-danger navbar-btn navbar-right" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
     </div>
   </div>
 </nav>

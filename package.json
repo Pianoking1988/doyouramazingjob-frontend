@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"    
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "engines": {
@@ -17,6 +17,7 @@
     "npm": "3.10.8"
   },
   "dependencies": {
+    "@angular/cli": "1.0.0-beta.32.3",
     "@angular/common": "^2.4.0",
     "@angular/compiler": "^2.4.0",
     "@angular/core": "^2.4.0",
@@ -25,7 +26,8 @@
     "@angular/platform-browser": "^2.4.0",
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
-    "@angular/cli": "1.0.0-beta.32.3",
+    "angular2-jwt": "^0.2.2",
+    "auth0-lock": "^10.14.0",
     "core-js": "^2.4.1",
     "express": "^4.14.1",
     "rxjs": "^5.1.0",
